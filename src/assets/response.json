@@ -1,0 +1,24 @@
+{
+    "page": 1,
+    "results": [
+        {
+            "genre": [
+                "Drama"
+            ],
+            "imageurl": [
+                "https://m.media-amazon.com/images/M/MV5BN2UyM2U3NTctNTRlOS00Yzg5LTgxZTItNmM0MWE4ODEwMjg1XkEyXkFqcGdeQXVyNDY2MjcyOTQ@._V1_UX182_CR0,0,182,268_AL_.jpg"
+            ],
+            "imdbid": "tt9411866",
+            "imdbrating": 4.9,
+            "language": [
+                "English"
+            ],
+            "released": 2020,
+            "runtime": "85 min",
+            "streamingAvailability": {},
+            "synopsis": "Sally Potter's film follows a day in the life of Leo (Javier Bardem) and his daughter, Molly (Elle Fanning), as he floats through alternate lives he could have lived, leading Molly to wrestle with her own path as she considers her future.",
+            "title": "The Roads Not Taken",
+            "type": "movie"
+        }
+    ]
+}

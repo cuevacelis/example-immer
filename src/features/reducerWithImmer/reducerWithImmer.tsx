@@ -1,43 +1,52 @@
 import { useImmerReducer } from "use-immer";
-import AddTask from "./AddTask";
-import TaskList from "./TaskList";
-import { initialTasks, tasksReducer } from "./tasksReducer";
-
-let nextId = 3;
+import FlightList from "./FlightList";
+import {
+    ActionReducer,
+    Flights,
+    flightsReducer,
+    initialFlights,
+} from "./flightsReducer";
 
 export default function ReducerWithimmer() {
-    const [tasks, dispatch] = useImmerReducer(tasksReducer, initialTasks);
+    const [flightsState, dispatchFlights] = useImmerReducer<
+        Flights[],
+        ActionReducer
+    >(flightsReducer, initialFlights);
 
-    function handleAddTask(text: any) {
-        dispatch({
-            type: "added",
-            id: nextId++,
-            text: text,
+    function handleAddFlight(
+        flightsLastChange: Flights,
+        idNext: number,
+        text: string
+    ) {
+        dispatchFlights({
+            type: "addFlight",
+            // id: flightsState.length+1,
+            flightChange: flightsLastChange,
         });
     }
 
-    function handleChangeTask(task: any) {
-        dispatch({
-            type: "changed",
-            task: task,
+    function handleChangeFlight(flightsLastChange: Flights) {
+        dispatchFlights({
+            type: "editFlight",
+            flightChange: flightsLastChange,
         });
     }
 
-    function handleDeleteTask(taskId: any) {
-        dispatch({
-            type: "deleted",
-            id: taskId,
+    function handleDeleteFlight(IdflightSelected: number) {
+        dispatchFlights({
+            type: "deletedFlight",
+            IdflightSelected: IdflightSelected,
         });
     }
 
     return (
         <>
-            <h1>Tareas</h1>
-            <AddTask onAddTask={handleAddTask} />
-            <TaskList
-                tasks={tasks}
-                onChangeTask={handleChangeTask}
-                onDeleteTask={handleDeleteTask}
+            <h1>Vuelos</h1>
+            {/* <AddFlight onAddFlight={handleAddFlight} /> */}
+            <FlightList
+                flightsState={flightsState}
+                onChangeFlight={handleChangeFlight}
+                onDeleteFlight={handleDeleteFlight}
             />
         </>
     );

@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function AddTask(props: any) {
+export default function AddFlight(props: any) {
     const [text, setText] = useState("");
     return (
         <>
