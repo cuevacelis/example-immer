@@ -8,7 +8,7 @@ export interface Flights {
     type: "one way" | "round trip";
 }
 
-interface FlightsPrice {
+export interface FlightsPrice {
     category: string;
     seats: number;
     priceChild: number;

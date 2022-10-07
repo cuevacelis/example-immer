@@ -1,6 +1,18 @@
 import { useState } from "react";
+import {Flights} from "./flightsReducer";
 
-function FlightList(props: any) {
+interface FlightListProps {
+    flightsState: Flights[],
+    onChangeFlight: (flightsLastChange: Flights) => void
+    onDeleteFlight: (IdflightSelected: number) => void
+}
+interface FlightProps {
+    flight: Flights,
+    onDelete: (id: number) => void
+    onChange: (flightsLastChange: Flights) => void
+}
+
+function FlightList(props: FlightListProps) {
     return (
         <ul>
             {props.flightsState.map((flight: any) => (
@@ -16,7 +28,7 @@ function FlightList(props: any) {
     );
 }
 
-function Flight(props: any) {
+function Flight(props: FlightProps) {
     const [isEditing, setIsEditing] = useState(false);
     let taskContent;
 
@@ -62,7 +74,7 @@ function Flight(props: any) {
     }
 
     return (
-        <label>
+        <div>
             {/* <input
                 type="checkbox"
                 checked={props.task.done}
@@ -77,7 +89,7 @@ function Flight(props: any) {
             <button onClick={() => props.onDelete(props.flight.id)}>
                 Eliminar
             </button>
-        </label>
+        </div>
     );
 }
 

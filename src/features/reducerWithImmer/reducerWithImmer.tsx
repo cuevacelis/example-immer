@@ -6,6 +6,7 @@ import {
     flightsReducer,
     initialFlights,
 } from "./flightsReducer";
+import AddFlight from "./AddFlight";
 
 export default function ReducerWithimmer() {
     const [flightsState, dispatchFlights] = useImmerReducer<
@@ -42,7 +43,7 @@ export default function ReducerWithimmer() {
     return (
         <>
             <h1>Vuelos</h1>
-            {/* <AddFlight onAddFlight={handleAddFlight} /> */}
+             <AddFlight onAddFlight={handleAddFlight} />
             <FlightList
                 flightsState={flightsState}
                 onChangeFlight={handleChangeFlight}
